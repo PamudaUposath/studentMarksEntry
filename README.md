@@ -43,3 +43,11 @@ n --> Never create a new file. But if there isn't any text file called "Marks", 
 --> 5] count of the all subjects\
 --> 6] add a new student and his/her details\
 --> 7] Save all the details inside the "Marks.txt" and terminate program
+
+## dependancies 
+Tkinter
+>pip install tk
+
+* Note
+
+on linux you might need to install tkinter on your system via your package manager too

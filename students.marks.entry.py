@@ -1,3 +1,9 @@
+#!/usr/bin/python
+
+PROGRAM_NAME = "students-Marks-Entry"
+VERSION = '1.0.0'
+
+import tkinter as tk
 
 s=[]    # Insert subjects names
 n=[]    # Insert marks
@@ -5,7 +11,7 @@ u=1    # use to create a document
 y=1 # use to assign numbers to the document
 t=1 # use to filter the correct numbers
 
-
+'''
 # Create document or not
 while u>0:
     print('Do you want to create a new document to store results? (y/n)')
@@ -19,11 +25,33 @@ while u>0:
     else:
         continue
     
+'''
 
 
+root = tk.Tk()
+root.title(PROGRAM_NAME)
+canvas = tk.Canvas(root, height=500, width=600)
+canvas.pack()
 
+# window to ask studen's name
+root.withdraw()
+nameWin = tk.Toplevel()
+nameWin.geometry('400x150')
+nameInLabel = tk.Label(nameWin, text="Enter student's name below", pady=10)
+nameInLabel.place(anchor='n', relx=0.5)
+nameInEntry = tk.Entry(nameWin)
+nameInEntry.place(width=380, height=40, y=50, x=10)
+p = "empty"
+def setStudName(name):
+    if name != "":
+        p = name
+        root.title(p)
+        root.deiconify()
+        nameWin.destroy()
+nameInBtn = tk.Button(nameWin, text="Submit", command=lambda:setStudName(nameInEntry.get()))
+nameInBtn.place(anchor="c", relx=0.5, y=120, width=100, height=50)
 
-
+'''
 p=input('Enter Student Name: ')
 
 # Open a text document
@@ -31,6 +59,7 @@ AF=open("Marks.txt","a")
 # Insert the Student name into document
 AF.write('{0}) Student Name: {1}\n'.format(y,p))
 AF.close()
+'''
 
 h=int(input('How many subjects do you have? '))
 for i in range(1,h+1):
@@ -212,3 +241,5 @@ while True:
                 AF.write('{0}: {1}\n'.format(s[p],n[i]))
                 i+=1
             AF.close()
+
+tk.mainloop()
