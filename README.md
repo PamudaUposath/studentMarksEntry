@@ -1,7 +1,6 @@
 # Students Marks Entry
-***You need a Python IDLE to run this program***
 
-* First insert all the details of the student(name,subject and marks).\
+* First insert all the details of the student(name,subject and marks).
 * This program can get,\
 &ensp;* max of the all subjects\
 &ensp;* min of the all subjects\
