@@ -6,11 +6,11 @@ VERSION = '0.5.0'
 import tkinter as tk
 from tkinter import scrolledtext
 
-s=[]    # Insert subjects names
+#s=[]    # Insert subjects names
 n=[]    # Insert marks NOTE = this is a list of tuples in the from of (subject of type str, marks of that subject in type float)
-u=1    # use to create a document
-y=1 # use to assign numbers to the document
-t=1 # use to filter the correct numbers
+#u=1    # use to create a document
+#y=1 # use to assign numbers to the document
+#t=1 # use to filter the correct numbers
 
 '''
 # Create document or not
