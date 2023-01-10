@@ -45,6 +45,7 @@ nameInEntry.place(width=380, height=40, y=50, x=10)
 p = "empty"
 def setStudName(name):
     if name != "":
+        global p
         p = name
         root.title(p)
         root.deiconify()
@@ -170,15 +171,16 @@ rmAllSubjectsBtn = tk.Button(root, padx=10, pady=10, text="clear all subjects", 
 rmAllSubjectsBtn.place(anchor='c', relx=0.375, rely=0.925, width=125, height=40)
         
 def SaveToDisk():
-    #TODO
-    pass
+    file = open(f"{p}.txt", 'w')
+    for i in n:
+        file.write(subjectsBoard.get(1.0, tk.END))
 
 MaxLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.1)
 MinLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.2)
 TotalLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.3)
 AvgLAbel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.4)
 
-saveToDiskBtn = tk.Button(root, text="Save data to disk", command=lambda:SaveToDisk)
+saveToDiskBtn = tk.Button(root, text="Save data to disk", command=SaveToDisk)
 EXITbtn = tk.Button(root, text="Exit", command=exit)
 
 saveToDiskBtn.place(anchor='c', height=40, width=200, relx=0.75, rely=0.65)
