@@ -5,7 +5,7 @@ from tkinter import scrolledtext
 import sys
 
 PROGRAM_NAME = "students-Marks-Entry"
-VERSION = '0.5.0'
+VERSION = '1.0.0'
 
 n=[]    # NOTE = this is a list of tuples in the from of (subject of type str, marks of that subject in type float)
 
