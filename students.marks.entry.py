@@ -33,6 +33,7 @@ root = tk.Tk()
 root.title(PROGRAM_NAME)
 canvas = tk.Canvas(root, height=500, width=600)
 canvas.pack()
+root.protocol('WM_DELETE_WINDOW', lambda:exit())
 
 # window to ask studen's name
 root.withdraw()
@@ -52,6 +53,7 @@ def setStudName(name):
         nameWin.destroy()
 nameInBtn = tk.Button(nameWin, text="Submit", command=lambda:setStudName(nameInEntry.get()))
 nameInBtn.place(anchor="c", relx=0.5, y=120, width=100, height=50)
+nameWin.protocol('WM_DELETE_WINDOW', lambda:exit())
 
 '''
 p=input('Enter Student Name: ')
@@ -170,10 +172,15 @@ addSubjectBtn.place(anchor='c', relx=0.125, rely=0.925, width=125, height=40)
 rmAllSubjectsBtn = tk.Button(root, padx=10, pady=10, text="clear all subjects", command=RmAll)
 rmAllSubjectsBtn.place(anchor='c', relx=0.375, rely=0.925, width=125, height=40)
         
+saveToDiskConfirmation = tk.Label(root, fg='green')
+        
 def SaveToDisk():
-    file = open(f"{p}.txt", 'w')
-    for i in n:
+    try:
+        file = open(f"{p}.txt", 'w')
         file.write(subjectsBoard.get(1.0, tk.END))
+        saveToDiskConfirmation.configure(text="Saved!")
+    except Exception:
+        saveToDiskConfirmation.configure(text="Saving failed!")
 
 MaxLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.1)
 MinLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.2)
@@ -182,6 +189,8 @@ AvgLAbel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.4)
 
 saveToDiskBtn = tk.Button(root, text="Save data to disk", command=SaveToDisk)
 EXITbtn = tk.Button(root, text="Exit", command=exit)
+
+saveToDiskConfirmation.place(anchor='c', height=40, width=200, relx=0.75, rely=0.75)
 
 saveToDiskBtn.place(anchor='c', height=40, width=200, relx=0.75, rely=0.65)
 EXITbtn.place(anchor='c', height=40, width=100, relx=0.75, rely=0.85)
