@@ -22,6 +22,16 @@ cd into the repository using the command-line and execute the `students.marks.en
 
 or just simply execute the script `students.marks.entry.py` in python using a graphical user interface if your operating system supports such actions
 
+## BUILD instructions for GUI
+
+install pyinstaller usign pip `pip install pyinstaller`
+
+cd into the folder using `cd students-Marks-Entry`
+
+execute the command `pyinstaller.exe .\students.marks.entry.py -w --onefile --name="Students Marks Entry"`
+
+Your executable binary will be located at `Student Marks Entry.exe`
+
 ## Instructions For Legacy-cli mode:
 
 * First insert all the details of the student(name,subject and marks).
