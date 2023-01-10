@@ -76,7 +76,7 @@ def Avarage():
     a = n
     avg=0
     tot=Total()
-    avg=float(tot)/(len(a))
+    avg=round(float(tot)/(len(a)), 2)
     global _Avarage_
     _Avarage_ = avg
     return avg
