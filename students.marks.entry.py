@@ -62,7 +62,7 @@ AF.write('{0}) Student Name: {1}\n'.format(y,p))
 AF.close()
 '''
 
-subjectsBoard = scrolledtext.ScrolledText(root, font=("Liberation Serief", 15))
+subjectsBoard = scrolledtext.ScrolledText(root, font=("Liberation Serief", 12))
 
 _Minimum_ = None
 _Maximum_ = None
@@ -152,8 +152,10 @@ def AddNewSubject():
     
 
 def RmAll():
-    #TODO
-    pass
+    subjectsBoard.configure(state='normal')
+    subjectsBoard.delete(1.0, tk.END)
+    subjectsBoard.configure(state='disabled')
+    n.clear()
 
 subjectsNote = tk.Label(root, text="Subjects")
 subjectsNote.place(anchor='c', relx=0.25, y=20)
@@ -164,7 +166,7 @@ subjectsBoard.configure(state='disabled')
 addSubjectBtn = tk.Button(root, padx=10, pady=10, text="Add new subject", command=AddNewSubject)
 addSubjectBtn.place(anchor='c', relx=0.125, rely=0.925, width=125, height=40)
 
-rmAllSubjectsBtn = tk.Button(root, padx=10, pady=10, text="clear all subjects", command=lambda:RmAll)
+rmAllSubjectsBtn = tk.Button(root, padx=10, pady=10, text="clear all subjects", command=RmAll)
 rmAllSubjectsBtn.place(anchor='c', relx=0.375, rely=0.925, width=125, height=40)
         
 def SaveToDisk():
