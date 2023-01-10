@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 PROGRAM_NAME = "students-Marks-Entry"
-VERSION = '0.2.0'
+VERSION = '0.5.0'
 
 import tkinter as tk
 from tkinter import scrolledtext
@@ -30,7 +30,7 @@ while u>0:
 
 
 root = tk.Tk()
-root.title(PROGRAM_NAME)
+root.title(PROGRAM_NAME + " - " + VERSION)
 canvas = tk.Canvas(root, height=500, width=600)
 canvas.pack()
 root.protocol('WM_DELETE_WINDOW', lambda:exit())
@@ -38,6 +38,7 @@ root.protocol('WM_DELETE_WINDOW', lambda:exit())
 # window to ask studen's name
 root.withdraw()
 nameWin = tk.Toplevel()
+nameWin.title(PROGRAM_NAME + " - " + VERSION)
 nameWin.geometry('400x150')
 nameInLabel = tk.Label(nameWin, text="Enter student's name below", pady=10)
 nameInLabel.place(anchor='n', relx=0.5)
