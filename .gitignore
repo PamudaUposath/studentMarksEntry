@@ -3,5 +3,5 @@ Marks.txt
 test.txt
 
 # build files from pyinstaller
-build/
-dist/
+/build/
+/dist/
