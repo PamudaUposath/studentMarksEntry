@@ -2,6 +2,7 @@
 
 import tkinter as tk
 from tkinter import scrolledtext
+import sys
 
 PROGRAM_NAME = "students-Marks-Entry"
 VERSION = '0.5.0'
@@ -12,7 +13,7 @@ root = tk.Tk()
 root.title(PROGRAM_NAME + " - " + VERSION)
 canvas = tk.Canvas(root, height=500, width=600)
 canvas.pack()
-root.protocol('WM_DELETE_WINDOW', lambda:exit())
+root.protocol('WM_DELETE_WINDOW', lambda:sys.exit(0))
 
 # window to ask studen's name
 root.withdraw()
@@ -33,7 +34,7 @@ def setStudName(name):
         nameWin.destroy()
 nameInBtn = tk.Button(nameWin, text="Submit", command=lambda:setStudName(nameInEntry.get()))
 nameInBtn.place(anchor="c", relx=0.5, y=120, width=100, height=50)
-nameWin.protocol('WM_DELETE_WINDOW', lambda:exit())
+nameWin.protocol('WM_DELETE_WINDOW', lambda:sys.exit(0))
 
 subjectsBoard = scrolledtext.ScrolledText(root, font=("Liberation Serief", 12))
 
@@ -158,7 +159,7 @@ TotalLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.3)
 AvgLAbel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.4)
 
 saveToDiskBtn = tk.Button(root, text="Save data to disk", command=SaveToDisk)
-EXITbtn = tk.Button(root, text="Exit", command=exit)
+EXITbtn = tk.Button(root, text="Exit", command=lambda:sys.exit(0))
 
 saveToDiskConfirmation.place(anchor='c', height=40, width=200, relx=0.75, rely=0.75)
 
