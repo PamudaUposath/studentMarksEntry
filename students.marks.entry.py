@@ -178,7 +178,7 @@ saveToDiskConfirmation = tk.Label(root, fg='green')
 def SaveToDisk():
     try:
         file = open(f"{p}.txt", 'w')
-        file.write(subjectsBoard.get(1.0, tk.END))
+        file.write(f"Subjects - Marks:{subjectsBoard.get(1.0, tk.END)}\nMaximum: {_Maximum_}\nMinimum: {_Minimum_}\nTotal: {_Total_}\nAvarage: {_Avarage_}\n")
         saveToDiskConfirmation.configure(text="Saved!")
     except Exception:
         saveToDiskConfirmation.configure(text="Saving failed!")
