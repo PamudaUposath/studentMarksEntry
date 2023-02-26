@@ -3,11 +3,12 @@
 import tkinter as tk
 from tkinter import scrolledtext
 import sys
+import pathlib
 
 PROGRAM_NAME = "students-Marks-Entry"
 VERSION = 'v1.0.0'
 
-n=[]    # NOTE = this is a list of tuples in the from of (subject of type str, marks of that subject in type float)
+n = []    # NOTE = this is a list of tuples in the from of (subject of type str, marks of that subject in type float)
 
 root = tk.Tk()
 root.title(PROGRAM_NAME + " - " + VERSION)
@@ -23,7 +24,7 @@ nameWin.geometry('400x150')
 nameInLabel = tk.Label(nameWin, text="Enter student's name below", pady=10)
 nameInLabel.place(anchor='n', relx=0.5)
 nameInEntry = tk.Entry(nameWin)
-nameInEntry.place(width=380, height=40, y=50, x=10)
+nameInEntry.place(anchor='c', width=380, height=40, y=50, relx=0.5)
 p = "empty"
 def setStudName(name):
     if name != "":
@@ -147,11 +148,13 @@ saveToDiskConfirmation = tk.Label(root, fg='green')
         
 def SaveToDisk():
     try:
-        file = open(f"{p}.txt", 'w')
+        dir = pathlib.Path("Results")
+        dir.mkdir(parents=True, exist_ok=True)
+        file = open(f"{dir}/{p}.txt", 'w')
         file.write(f"Subjects - Marks:{subjectsBoard.get(1.0, tk.END)}\nMaximum: {_Maximum_}\nMinimum: {_Minimum_}\nTotal: {_Total_}\nAvarage: {_Avarage_}\n")
         saveToDiskConfirmation.configure(text="Saved!")
     except Exception:
-        saveToDiskConfirmation.configure(text="Saving failed!")
+        saveToDiskConfirmation.configure(fg='red', text="Saving failed!")
 
 MaxLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.1)
 MinLabel.place(anchor='c', height=30, width=200, relx=0.75, rely=0.2)

@@ -1,6 +1,5 @@
 # junk files created for testing purposes
-Marks.txt
-test.txt
+/Results/
 
 # build files from pyinstaller
 /build/
