@@ -1,0 +1,6 @@
+# junk files created for testing purposes
+/Results/
+
+# build files from pyinstaller
+/build/
+/dist/
